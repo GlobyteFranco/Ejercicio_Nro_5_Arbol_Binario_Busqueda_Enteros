@@ -1,6 +1,5 @@
 package view;
 
-import java.util.List;
 import java.util.Scanner;
 
 import controller.ArbolController;
@@ -12,7 +11,6 @@ public class ArbolView implements View {
 
     public void enterData() {
         int variableIngreso;
-        // usar scanner.nextLine() y Integer.parseInt()
 
         System.out.println(
                 "A continuacion por favor ingrese los datos para llenar el arbol o tipee una letra para terminar y verlo... \n\n");
@@ -30,8 +28,8 @@ public class ArbolView implements View {
 
         }
 
-        // displayData();
         buscarValor();
+        displayData();
     }
 
     public void displayData() {
@@ -51,8 +49,6 @@ public class ArbolView implements View {
             System.out.println("El valor ha sido encontradi");
         else
             System.out.println("El valor no ha sido encontrado");
-
-        displayData();
 
     }
 }

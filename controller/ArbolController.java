@@ -100,19 +100,28 @@ public class ArbolController {
 
     }
 
-    public List<Integer> devolverOrdenadoRecursivo(Nodo nodoAux, Nodo nodoPadre, List<Integer> listaDevolver) {// todo
+    public List<Integer> devolverOrdenadoRecursivo(Nodo nodoAux, List<Integer> listaNodos) {// todo
+        if (nodoAux == null) {
+            return listaNodos;
+        }
 
-        return null;
+        devolverOrdenadoRecursivo(nodoAux.getIzquierdo(), listaNodos);
+        // listaNodos.add(nodoAux.getIzquierdo().getValor());
+
+        listaNodos.add(nodoAux.getValor());
+
+        devolverOrdenadoRecursivo(nodoAux.getDerecho(), listaNodos);
+        // listaNodos.add(nodoAux.getDerecho().getValor());
+
+        return listaNodos;
     }
 
-    public List<Integer> devolverOrdenado() {// todo
+    public List<Integer> devolverOrdenado() {
         List<Integer> listaDevolver = new ArrayList<>();
         if (arbol.getRaiz() == null) {
             return null;
         } else {
-            Nodo nodoAux = arbol.getRaiz();
-            Nodo nodoPadre = nodoAux;
-            return devolverOrdenadoRecursivo(nodoAux, nodoPadre, listaDevolver);
+            return devolverOrdenadoRecursivo(arbol.getRaiz(), listaDevolver);
         }
 
     }
